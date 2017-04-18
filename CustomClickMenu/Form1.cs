@@ -295,12 +295,13 @@ namespace CustomClickMenu
                         if (dgr.MenuType == "View")
                         {
                             cb.Type = ClickButtonType.view;
+                            cb.Url = dgr.Url;
                         }
                         else if (dgr.MenuType == "Click")
                         {
                             cb.Type = ClickButtonType.click;
                             cb.Key = dgr.Key;
-                            cb.Url = dgr.Url;
+                            
                         }
                         else if (dgr.MenuType == "Media_ID")
                         {
