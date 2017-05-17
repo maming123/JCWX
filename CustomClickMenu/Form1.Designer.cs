@@ -44,6 +44,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.button7 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.btnGetMenuFromUrl = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -107,7 +108,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(532, 312);
+            this.button2.Location = new System.Drawing.Point(435, 312);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(121, 29);
             this.button2.TabIndex = 6;
@@ -117,7 +118,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(142, 312);
+            this.button3.Location = new System.Drawing.Point(105, 312);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(87, 29);
             this.button3.TabIndex = 7;
@@ -127,7 +128,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(272, 312);
+            this.button4.Location = new System.Drawing.Point(198, 312);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(87, 29);
             this.button4.TabIndex = 8;
@@ -137,7 +138,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(402, 312);
+            this.button5.Location = new System.Drawing.Point(301, 312);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(113, 29);
             this.button5.TabIndex = 9;
@@ -201,11 +202,22 @@
             this.comboBox1.Size = new System.Drawing.Size(82, 20);
             this.comboBox1.TabIndex = 14;
             // 
+            // btnGetMenuFromUrl
+            // 
+            this.btnGetMenuFromUrl.Location = new System.Drawing.Point(574, 312);
+            this.btnGetMenuFromUrl.Name = "btnGetMenuFromUrl";
+            this.btnGetMenuFromUrl.Size = new System.Drawing.Size(137, 27);
+            this.btnGetMenuFromUrl.TabIndex = 15;
+            this.btnGetMenuFromUrl.Text = "获取公众号菜单";
+            this.btnGetMenuFromUrl.UseVisualStyleBackColor = true;
+            this.btnGetMenuFromUrl.Click += new System.EventHandler(this.btnGetMenuFromUrl_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 391);
+            this.Controls.Add(this.btnGetMenuFromUrl);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.label3);
@@ -248,6 +260,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Button btnGetMenuFromUrl;
     }
 }
 

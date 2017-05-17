@@ -383,5 +383,89 @@ namespace CustomClickMenu
                     break;
             }
         }
+
+        private void btnGetMenuFromUrl_Click(object sender, EventArgs e)
+        {
+            var appId = tb_appId.Text.Trim();
+            var appSecret = tb_appSecret.Text.Trim();
+
+            ApiAccessTokenManager.Instance.SetAppIdentity(appId, appSecret);
+
+            IApiClient client = new DefaultApiClient();
+            var request = new MenuGetRequest()
+            {
+                AccessToken = ApiAccessTokenManager.Instance.GetCurrentToken()
+                
+            };
+
+            var response = client.Execute(request);
+            if (response.IsError)
+            {
+                MessageBox.Show(response.ToString());
+                return;
+            }
+            else
+            {
+                WX.Model.ApiResponses.Menu menu = response.Menu;
+                Rows.Clear();
+                int cbNum = 1;
+                foreach(ClickButton cb in menu.Buttons)
+                {
+                    var row = new DataGridRow();
+                    row.Id = cbNum.ToString();
+                    string id = row.Id;
+                    cbNum++;
+                    row.Title = cb.Name;
+                    row.Key = cb.Key;
+                    row.Media_ID = cb.Media_ID;
+                    
+                    if (cb.Type== ClickButtonType.view )
+                    {
+                        row.MenuType = "View";
+                        
+                    }
+                    else if (cb.Type== ClickButtonType.click)
+                    {
+                        row.MenuType = "Click";
+                    }
+                    else if (cb.Type== ClickButtonType.media_id) 
+                    {
+                        row.MenuType = "Media_ID";
+                    }
+                    row.Url = cb.Url;
+                    Rows.Add(row);
+                    foreach (ClickButton scb in cb.SubButton)
+                    {
+                        var subrow = new DataGridRow();
+                        subrow.Id = cbNum.ToString();
+                        subrow.Title = scb.Name;
+                        subrow.Key = scb.Key;
+                        subrow.Media_ID = scb.Media_ID;
+                        if (scb.Type == ClickButtonType.view)
+                        {
+                            subrow.MenuType = "View";
+
+                        }
+                        else if (scb.Type == ClickButtonType.click)
+                        {
+                            subrow.MenuType = "Click";
+                        }
+                        else if (scb.Type == ClickButtonType.media_id)
+                        {
+                            subrow.MenuType = "Media_ID";
+                        }
+                        subrow.Url = scb.Url;
+                        subrow.RootId = id;
+                        cbNum++;
+                        Rows.Add(subrow);
+                    }
+
+                }
+                RefreshGrid();
+                
+            }
+        }
     }
 }
+
+

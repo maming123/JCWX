@@ -98,11 +98,11 @@ namespace CustomClickMenu
 
         private bool Verfiry()
         {
-            if (!radioButton1.Checked && !radioButton2.Checked && !radioButton3.Checked)
-            {
-                ShowMessage("请选择类型");
-                return false;
-            }
+            //if (!radioButton1.Checked && !radioButton2.Checked && !radioButton3.Checked)
+            //{
+            //    ShowMessage("请选择类型");
+            //    return false;
+            //}
 
             if (String.IsNullOrEmpty(textBox1.Text))
             {
